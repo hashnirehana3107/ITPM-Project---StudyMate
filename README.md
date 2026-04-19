@@ -6,10 +6,10 @@ StudyMate is a comprehensive platform designed to assist students in managing th
 
 | Member Name | Registration Number | Subsystem |
 | :--- | :--- | :--- |
-| [Member 1 Name] | [Reg No 1] | Personalized Dashboard Management |
-| [Member 2 Name] | [Reg No 2] | Internship and Career Guidance |
-| Hashni Rehana | [Your Reg No] | Academic Issue Resolution System |
-| [Member 4 Name] | [Reg No 4] | Study Materials Management |
+| [M.W.T.D.D Abeykoon] | [IT23747654] | Personalized Dashboard Management |
+| [W.G.A.D Bandara] | [IT23718180] | Internship and Career Guidance |
+| H.R Majeed | [IT23197732] | Academic Issue Resolution System |
+| [G.G.A.E Gamaarachchi] | [IT23718326] | Study Materials Management |
 
 ## Project Overview
 
