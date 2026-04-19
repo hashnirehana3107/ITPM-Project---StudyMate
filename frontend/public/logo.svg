@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" fill="none">
+  <defs>
+    <filter id="glow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="15" result="coloredBlur"/>
+      <feMerge>
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+  
+  <!-- Outer Rounded Frame with Glow -->
+  <rect x="36" y="36" width="440" height="440" rx="80" stroke="#64FFDA" stroke-width="20" fill="none" filter="url(#glow)" stroke-opacity="0.8"/>
+  
+  <!-- Graduation Cap Icon -->
+  <path d="M256 120L440 220L256 320L72 220L256 120Z" stroke="#64FFDA" stroke-width="18" stroke-linecap="round" stroke-linejoin="round" fill="none" filter="url(#glow)"/>
+  <path d="M140 258V360C140 360 180 400 256 400C332 400 372 360 372 360V258" stroke="#64FFDA" stroke-width="18" stroke-linecap="round" stroke-linejoin="round" fill="none" filter="url(#glow)"/>
+  <path d="M440 220V340" stroke="#64FFDA" stroke-width="18" stroke-linecap="round" stroke-linejoin="round" fill="none" filter="url(#glow)"/>
+</svg>
