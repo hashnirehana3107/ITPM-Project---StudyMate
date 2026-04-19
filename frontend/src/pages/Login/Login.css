@@ -1,0 +1,594 @@
+.login-page {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #0F172A;
+    background-image:
+        radial-gradient(circle at top right, rgba(100, 255, 218, 0.05) 0%, transparent 60%),
+        linear-gradient(rgba(255, 255, 255, 0.02) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
+    background-size: 100% 100%, 50px 50px, 50px 50px;
+    padding: 120px 2rem 60px;
+    font-family: 'Poppins', sans-serif;
+    color: #FFFFFF;
+    overflow-y: auto;
+    /* Ensure scroll if content is tall */
+}
+
+.login-container-split {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    width: 100%;
+    max-width: 1100px;
+    min-height: 600px;
+    background: rgba(30, 41, 59, 0.4);
+    backdrop-filter: blur(20px);
+    border-radius: 30px;
+    box-shadow: 0 40px 100px rgba(0, 0, 0, 0.5);
+    border: 1px solid rgba(100, 255, 218, 0.1);
+    overflow: hidden;
+    position: relative;
+    animation: fadeIn 0.8s ease-out;
+}
+
+/* 🧩 Left Side - Illustration */
+.login-illustration-side {
+    position: relative;
+    background: linear-gradient(135deg, rgba(100, 255, 218, 0.1), rgba(30, 41, 59, 0.8));
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 4rem;
+    overflow: hidden;
+}
+
+.illustration-content {
+    position: relative;
+    z-index: 2;
+    text-align: center;
+}
+
+.illustration-content h1 {
+    font-size: 3rem;
+    font-weight: 800;
+    line-height: 1.1;
+    margin-bottom: 1.5rem;
+    color: #FFFFFF;
+}
+
+.illustration-content p {
+    font-size: 1.1rem;
+    color: #CBD5E1;
+    line-height: 1.6;
+    margin-bottom: 2rem;
+}
+
+.highlight-text {
+    background: linear-gradient(to right, #64FFDA, #4ADE80);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+/* 🧩 Interactive Lamp Styling - Theme Matched */
+.lamp-scene {
+    position: relative;
+    width: 100%;
+    height: 450px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-end;
+}
+
+.lamp-hardware {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    z-index: 5;
+    transition: all 0.3s ease;
+}
+
+/* Lamp Base */
+.lamp-base {
+    width: 160px;
+    height: 25px;
+    background: linear-gradient(180deg, #1E293B, #0F172A);
+    border-top: 2px solid rgba(100, 255, 218, 0.2);
+    border-radius: 50% 50% 10px 10px;
+    position: relative;
+    z-index: 6;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);
+    margin-top: -5px;
+}
+
+/* Lamp Pole */
+.lamp-pole {
+    width: 25px;
+    height: 200px;
+    background: linear-gradient(90deg, #0F172A, #334155, #0F172A);
+    position: relative;
+    z-index: 5;
+    border-left: 1px solid rgba(255, 255, 255, 0.05);
+    border-right: 1px solid rgba(0, 0, 0, 0.5);
+}
+
+/* Lamp Shade */
+.lamp-shade {
+    width: 260px;
+    height: 180px;
+    background: linear-gradient(180deg, #1E293B, #0F172A);
+    clip-path: polygon(25% 0%, 75% 0%, 100% 100%, 0% 100%);
+    position: relative;
+    z-index: 10;
+    border-bottom: 5px solid rgba(100, 255, 218, 0.3);
+    transition: background 0.3s ease, border-color 0.3s ease;
+}
+
+.lamp-hardware.glow .lamp-shade {
+    background: linear-gradient(180deg, #1E293B, #112726);
+    /* Cyan tint */
+    border-bottom: 5px solid rgba(100, 255, 218, 0.8);
+}
+
+/* Light Source Glow Inside Shade */
+.lamp-light-source {
+    position: absolute;
+    bottom: -20px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 90%;
+    height: 40px;
+    background: #64FFDA;
+    /* Primary Theme Cyan */
+    border-radius: 50%;
+    opacity: 0.02;
+    transition: opacity 0.3s ease, box-shadow 0.3s ease;
+    z-index: -1;
+}
+
+.lamp-hardware.glow .lamp-light-source {
+    opacity: 1;
+    box-shadow: 0 50px 150px 80px rgba(100, 255, 218, 0.3);
+}
+
+/* Wire Container - Positioned to hang from the left side of the shade */
+.lamp-wire-container {
+    position: absolute;
+    top: 220px;
+    /* Aligns with the bottom of the shade */
+    left: calc(50% - 80px);
+    /* 80px to the left of the center pole */
+    height: 150px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    cursor: pointer;
+    z-index: 20;
+    /* Very high z-index to ensure it's clickable */
+    padding: 10px;
+    /* Larger click area */
+    padding-top: 0;
+}
+
+/* The Wire */
+.lamp-wire {
+    width: 4px;
+    height: 90px;
+    background: linear-gradient(to bottom, #94A3B8, #CBD5E1);
+    position: relative;
+    transform-origin: top;
+    transition: height 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    border-radius: 2px;
+}
+
+.lamp-wire-container:hover .lamp-wire {
+    background: #FFFFFF;
+}
+
+.lamp-wire-container.pulled .lamp-wire {
+    height: 120px;
+}
+
+/* Pull Handle */
+.wire-handle {
+    width: 14px;
+    height: 25px;
+    background: linear-gradient(180deg, #CBD5E1, #FFFFFF);
+    border-radius: 8px;
+    margin-top: -2px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+    transition: transform 0.2s;
+}
+
+.lamp-wire-container:hover .wire-handle {
+    transform: scale(1.1);
+}
+
+/* 🧩 Light States & Transitions */
+.login-page.light-off .login-container-split {
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.9);
+    border-color: rgba(255, 255, 255, 0.02);
+}
+
+.login-page.light-off .login-illustration-side {
+    background: #05070a;
+    /* Pitch black when light is off */
+}
+
+.login-page.light-on .login-illustration-side {
+    background: radial-gradient(circle at center, rgba(100, 255, 218, 0.15) 0%, rgba(15, 23, 42, 0.9) 70%);
+}
+
+.login-form-side {
+    position: relative;
+    transition: opacity 0.8s ease, transform 0.8s ease, visibility 0.8s;
+}
+
+/* 🧩 User Friendly Hints */
+.pull-hint {
+    position: absolute;
+    left: 25px;
+    top: 0;
+    white-space: nowrap;
+    background: #64FFDA;
+    color: #0F172A;
+    padding: 6px 12px;
+    border-radius: 20px;
+    font-size: 0.75rem;
+    font-weight: 700;
+    box-shadow: 0 5px 15px rgba(100, 255, 218, 0.4);
+    animation: bounceRight 2s infinite;
+    pointer-events: none;
+}
+
+.pull-hint::before {
+    content: '';
+    position: absolute;
+    left: -6px;
+    top: 50%;
+    transform: translateY(-50%);
+    border-top: 6px solid transparent;
+    border-bottom: 6px solid transparent;
+    border-right: 6px solid #64FFDA;
+}
+
+@keyframes bounceRight {
+    0%, 20%, 50%, 80%, 100% {transform: translateX(0);}
+    40% {transform: translateX(-5px);}
+    60% {transform: translateX(-3px);}
+}
+
+.dark-overlay-hint {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    pointer-events: auto;
+    cursor: pointer;
+    width: 100%;
+    padding: 2rem;
+    z-index: 100;
+}
+
+.dark-overlay-hint .hint-icon {
+    color: rgba(100, 255, 218, 0.8);
+    margin-bottom: 1.5rem;
+    filter: drop-shadow(0 0 10px rgba(100, 255, 218, 0.3));
+    animation: pulseGlow 2s infinite;
+}
+
+.dark-overlay-hint h3 {
+    font-size: 1.5rem;
+    color: #94A3B8;
+    margin-bottom: 1rem;
+}
+
+.btn-reveal-hint {
+    background: transparent;
+    border: 2px solid #64FFDA;
+    color: #64FFDA;
+    padding: 0.8rem 1.5rem;
+    border-radius: 30px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.btn-reveal-hint:hover {
+    background: #64FFDA;
+    color: #0F172A;
+    box-shadow: 0 0 20px rgba(100, 255, 218, 0.4);
+}
+
+@keyframes pulseGlow {
+    0% { transform: scale(1); opacity: 0.6; }
+    50% { transform: scale(1.1); opacity: 1; }
+    100% { transform: scale(1); opacity: 0.6; }
+}
+
+.login-form-side.form-hidden .login-card {
+    opacity: 0;
+    visibility: hidden;
+}
+
+.form-hidden {
+    opacity: 1 !important; /* Keep the side visible but darkened */
+    pointer-events: auto !important;
+    visibility: visible !important;
+    transform: none !important;
+    background: #05070a !important;
+}
+
+/* 🧩 Right Side - Login Form */
+.login-form-side {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 3rem;
+    background: rgba(15, 23, 42, 0.6);
+}
+
+.login-card {
+    width: 100%;
+    max-width: 400px;
+}
+
+.login-header {
+    text-align: center;
+    margin-bottom: 2.5rem;
+}
+
+.brand-logo {
+    width: 60px;
+    height: 60px;
+    background: rgba(100, 255, 218, 0.1);
+    color: #64FFDA;
+    border-radius: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 1.5rem;
+    box-shadow: 0 0 20px rgba(100, 255, 218, 0.2);
+}
+
+.login-header h2 {
+    font-size: 2rem;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+}
+
+.login-header p {
+    color: #94A3B8;
+    font-size: 0.95rem;
+}
+
+/* Modern Inputs */
+.form-group-modern {
+    margin-bottom: 1.5rem;
+    position: relative;
+}
+
+.input-wrapper-modern {
+    position: relative;
+}
+
+.input-icon-modern {
+    position: absolute;
+    left: 1.5rem;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 1.2rem;
+    opacity: 0.7;
+    z-index: 10;
+}
+
+.input-wrapper-modern input {
+    width: 100%;
+    padding: 1rem 1rem 1rem 4.5rem;
+    background: rgba(30, 41, 59, 0.5);
+    border: 2px solid rgba(255, 255, 255, 0.05);
+    border-radius: 12px;
+    color: #FFFFFF;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+    outline: none;
+}
+
+.input-wrapper-modern input:focus {
+    border-color: #64FFDA;
+    background: rgba(30, 41, 59, 0.8);
+    box-shadow: 0 0 15px rgba(100, 255, 218, 0.1);
+}
+
+/* Floating Label Animation */
+.floating-label {
+    position: absolute;
+    left: 4.5rem;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #94A3B8;
+    pointer-events: none;
+    transition: all 0.3s ease;
+    font-size: 0.95rem;
+    background: transparent;
+    padding: 0 5px;
+}
+
+.input-wrapper-modern input:focus~.floating-label,
+.input-wrapper-modern input:not(:placeholder-shown)~.floating-label {
+    top: -10px;
+    left: 1.5rem;
+    font-size: 0.8rem;
+    color: #64FFDA;
+    font-weight: 600;
+    background: #1e293b;
+    padding: 0 8px;
+    border-radius: 4px;
+    z-index: 20;
+}
+
+.toggle-password {
+    position: absolute;
+    right: 1rem;
+    top: 50%;
+    transform: translateY(-50%);
+    background: none;
+    border: none;
+    color: #94A3B8;
+    cursor: pointer;
+    font-size: 1.1rem;
+    transition: color 0.3s;
+}
+
+.toggle-password:hover {
+    color: #FFFFFF;
+}
+
+.form-actions {
+    display: flex;
+    justify-content: flex-end;
+    margin-bottom: 1.5rem;
+}
+
+.form-actions a {
+    color: #94A3B8;
+    font-size: 0.9rem;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.form-actions a:hover {
+    color: #64FFDA;
+}
+
+/* Main Button */
+.btn-login-modern {
+    width: 100%;
+    padding: 1rem;
+    background: #64FFDA;
+    color: #0F172A;
+    border: none;
+    border-radius: 12px;
+    font-weight: 700;
+    font-size: 1.1rem;
+    cursor: pointer;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+    overflow: hidden;
+}
+
+.btn-login-modern:hover {
+    background: #FFFFFF;
+    transform: translateY(-2px);
+    box-shadow: 0 10px 25px rgba(100, 255, 218, 0.3);
+}
+
+.btn-login-modern.success {
+    background: #4ADE80;
+    pointer-events: none;
+}
+
+.spinner-sm {
+    width: 20px;
+    height: 20px;
+    border: 3px solid rgba(0, 0, 0, 0.1);
+    border-top-color: #0F172A;
+    border-radius: 50%;
+    animation: spin 0.8s linear infinite;
+    display: inline-block;
+}
+
+/* Error Alert */
+.error-alert {
+    background: rgba(239, 68, 68, 0.1);
+    border: 1px solid rgba(239, 68, 68, 0.3);
+    color: #F87171;
+    padding: 1rem;
+    margin-bottom: 1.5rem;
+    border-radius: 12px;
+    font-size: 0.9rem;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.shake-animation {
+    animation: shake 0.5s ease-in-out;
+}
+
+@keyframes shake {
+
+    0%,
+    100% {
+        transform: translateX(0);
+    }
+
+    10%,
+    30%,
+    50%,
+    70%,
+    90% {
+        transform: translateX(-5px);
+    }
+
+    20%,
+    40%,
+    60%,
+    80% {
+        transform: translateX(5px);
+    }
+}
+
+/* Footer Link */
+.login-footer {
+    margin-top: 2rem;
+    text-align: center;
+}
+
+.login-footer p {
+    color: #94A3B8;
+    font-size: 0.95rem;
+}
+
+.register-link {
+    color: #64FFDA;
+    font-weight: 600;
+    text-decoration: none;
+    margin-left: 5px;
+}
+
+.register-link:hover {
+    text-decoration: underline;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Mobile Responsiveness */
+@media (max-width: 900px) {
+    .login-container-split {
+        grid-template-columns: 1fr;
+        max-width: 500px;
+    }
+
+    .login-illustration-side {
+        display: none;
+    }
+
+    .login-page {
+        padding: 1rem;
+    }
+}
