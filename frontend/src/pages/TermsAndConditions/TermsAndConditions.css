@@ -1,0 +1,219 @@
+/* Terms & Conditions - Premium Dark Theme */
+
+.terms-page {
+    min-height: 100vh;
+    background-color: #0F172A;
+    background-image:
+        radial-gradient(at 0% 0%, rgba(100, 255, 218, 0.05) 0px, transparent 50%),
+        radial-gradient(at 100% 100%, rgba(59, 130, 246, 0.05) 0px, transparent 50%);
+    padding: 120px 2rem 80px;
+    font-family: 'Poppins', sans-serif;
+    color: #F8FAFC;
+}
+
+.terms-container {
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+/* 🔙 Back Button */
+.btn-back-terms {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    background: transparent;
+    border: none;
+    color: #94A3B8;
+    font-size: 1rem;
+    font-weight: 500;
+    cursor: pointer;
+    margin-bottom: 2rem;
+    padding: 0;
+    transition: all 0.3s ease;
+}
+
+.btn-back-terms:hover {
+    color: #64FFDA;
+    transform: translateX(-5px);
+}
+
+/* 💎 Premium Glass Card */
+.terms-card {
+    background: rgba(30, 41, 59, 0.4);
+    backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 32px;
+    padding: 3rem 4rem;
+    box-shadow: 0 40px 80px rgba(0, 0, 0, 0.4);
+    position: relative;
+    overflow: hidden;
+}
+
+/* 🖼️ Header */
+.terms-header {
+    text-align: center;
+    margin-bottom: 4rem;
+    padding-bottom: 2rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.icon-wrapper-large {
+    width: 80px;
+    height: 80px;
+    background: rgba(100, 255, 218, 0.1);
+    border-radius: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #64FFDA;
+    margin: 0 auto 1.5rem;
+    box-shadow: 0 0 30px rgba(100, 255, 218, 0.2);
+}
+
+.glow-icon {
+    filter: drop-shadow(0 0 10px rgba(100, 255, 218, 0.5));
+}
+
+.terms-header h1 {
+    font-size: 3rem;
+    font-weight: 800;
+    margin: 0 0 1rem 0;
+    background: linear-gradient(to right, #ffffff, #94a3b8);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.effective-date {
+    color: #64748B;
+    font-size: 1rem;
+    display: block;
+}
+
+/* 📄 Content Layout */
+.terms-content {
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;
+}
+
+.terms-section {
+    position: relative;
+    padding-left: 2rem;
+    border-left: 2px solid rgba(255, 255, 255, 0.05);
+    transition: all 0.3s ease;
+}
+
+.terms-section:hover {
+    border-left-color: #64FFDA;
+}
+
+.terms-section h2 {
+    font-size: 1.5rem;
+    color: #E2E8F0;
+    margin-bottom: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.section-icon {
+    color: #64FFDA;
+    opacity: 0.8;
+}
+
+.terms-section p {
+    color: #94A3B8;
+    line-height: 1.8;
+    font-size: 1.05rem;
+    margin-bottom: 1rem;
+}
+
+.terms-section ul {
+    list-style: none;
+    padding: 0;
+    margin: 1rem 0;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.terms-section li {
+    color: #CBD5E1;
+    position: relative;
+    padding-left: 24px;
+    line-height: 1.6;
+}
+
+.terms-section li::before {
+    content: '•';
+    color: #64FFDA;
+    position: absolute;
+    left: 0;
+    font-size: 1.2rem;
+    line-height: 1;
+}
+
+/* 📞 Contact Box */
+.support-link {
+    background: rgba(100, 255, 218, 0.05);
+    border: 1px solid rgba(100, 255, 218, 0.1);
+    padding: 1.5rem;
+    border-radius: 16px;
+    margin-top: 1rem;
+}
+
+.support-link a {
+    color: #64FFDA;
+    font-weight: 600;
+    text-decoration: none;
+}
+
+.support-link a:hover {
+    text-decoration: underline;
+}
+
+/* Footer Note */
+.terms-footer {
+    text-align: center;
+    margin-top: 4rem;
+    padding-top: 2rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+    color: #64748B;
+    font-size: 0.9rem;
+}
+
+/* Animations */
+.animate-fade-in {
+    animation: fadeIn 0.8s ease-out;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .terms-card {
+        padding: 2rem;
+    }
+
+    .terms-header h1 {
+        font-size: 2rem;
+    }
+
+    .terms-section {
+        padding-left: 0;
+        border-left: none;
+        padding-top: 1rem;
+        border-top: 1px solid rgba(255, 255, 255, 0.05);
+    }
+}
