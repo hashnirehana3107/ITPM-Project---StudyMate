@@ -1,3 +1,6 @@
+// @author: Majeed H.R (IT23197732)
+// @subsystem: Academic Issue Resolution System
+// @description: Handles administrative moderation tasks for academic content.
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { getEnrichedMockIssues } from '../../utils/issueMocks';
