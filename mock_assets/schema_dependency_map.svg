@@ -1,0 +1,92 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="900" height="600" font-family="Segoe UI, Arial, sans-serif">
+
+  <!-- Background -->
+  <rect width="900" height="600" fill="#f8f9fa"/>
+
+  <!-- Title -->
+  <text x="450" y="40" text-anchor="middle" font-size="20" font-weight="bold" fill="#1a1a2e">Database Schema - Dependency Map (IT2010)</text>
+  <text x="450" y="62" text-anchor="middle" font-size="13" fill="#555">Identifying Partial Dependency Violation in 2NF</text>
+
+  <!-- ======= ORIGINAL TABLE (Violation) ======= -->
+  <rect x="50" y="90" width="380" height="210" rx="10" fill="#fff" stroke="#dc3545" stroke-width="2"/>
+  <rect x="50" y="90" width="380" height="38" rx="10" fill="#dc3545"/>
+  <text x="240" y="115" text-anchor="middle" font-size="15" font-weight="bold" fill="#fff">Inventory (VIOLATION - Not in 2NF)</text>
+
+  <!-- Column headers -->
+  <text x="80" y="150" font-size="13" fill="#1a1a2e" font-weight="bold" text-decoration="underline">OrderID (PK)</text>
+  <text x="80" y="172" font-size="13" fill="#1a1a2e" font-weight="bold" text-decoration="underline">ProductID (PK)</text>
+  <text x="80" y="194" font-size="13" fill="#555">OrderDate</text>
+  <text x="80" y="216" font-size="13" fill="#dc3545" font-weight="bold">ProductName ⚠️</text>
+  <text x="80" y="238" font-size="13" fill="#555">Quantity</text>
+
+  <!-- PK Bracket -->
+  <line x1="70" y1="145" x2="65" y2="145" stroke="#333" stroke-width="1.5"/>
+  <line x1="65" y1="145" x2="65" y2="177" stroke="#333" stroke-width="1.5"/>
+  <line x1="65" y1="177" x2="70" y2="177" stroke="#333" stroke-width="1.5"/>
+  <text x="54" y="165" text-anchor="middle" font-size="10" fill="#333" transform="rotate(-90, 54, 165)">Composite PK</text>
+
+  <!-- Partial Dependency Arrow (ProductID -> ProductName) -->
+  <defs>
+    <marker id="arrowRed" markerWidth="10" markerHeight="7" refX="10" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#dc3545"/>
+    </marker>
+    <marker id="arrowGreen" markerWidth="10" markerHeight="7" refX="10" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#28a745"/>
+    </marker>
+    <marker id="arrowBlue" markerWidth="10" markerHeight="7" refX="10" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#007bff"/>
+    </marker>
+  </defs>
+
+  <!-- Red curved arrow: ProductID -> ProductName -->
+  <path d="M 290 172 Q 370 172 370 216 Q 370 216 300 216" fill="none" stroke="#dc3545" stroke-width="2" stroke-dasharray="6,3" marker-end="url(#arrowRed)"/>
+  <text x="375" y="196" font-size="11" fill="#dc3545" font-weight="bold">Partial</text>
+  <text x="368" y="210" font-size="11" fill="#dc3545" font-weight="bold">Dependency!</text>
+
+  <!-- Violation label -->
+  <rect x="55" y="270" width="370" height="22" rx="5" fill="#ffe0e3"/>
+  <text x="240" y="285" text-anchor="middle" font-size="12" fill="#dc3545" font-weight="bold">❌ ProductName depends only on ProductID, not full PK</text>
+
+  <!-- ======= SOLUTION TABLES ======= -->
+  <text x="450" y="350" text-anchor="middle" font-size="15" font-weight="bold" fill="#28a745">✅ Decomposed into 2NF (Solution)</text>
+  <line x1="100" y1="360" x2="800" y2="360" stroke="#28a745" stroke-width="1.5" stroke-dasharray="5,3"/>
+
+  <!-- Table 1: Orders -->
+  <rect x="50" y="375" width="220" height="110" rx="8" fill="#fff" stroke="#007bff" stroke-width="2"/>
+  <rect x="50" y="375" width="220" height="35" rx="8" fill="#007bff"/>
+  <text x="160" y="398" text-anchor="middle" font-size="13" font-weight="bold" fill="#fff">Orders</text>
+  <text x="75" y="428" font-size="12" fill="#1a1a2e" font-weight="bold" text-decoration="underline">OrderID (PK)</text>
+  <text x="75" y="450" font-size="12" fill="#555">OrderDate</text>
+  <text x="75" y="470" font-size="12" fill="#555">CustomerName</text>
+
+  <!-- Table 2: Products -->
+  <rect x="340" y="375" width="220" height="95" rx="8" fill="#fff" stroke="#007bff" stroke-width="2"/>
+  <rect x="340" y="375" width="220" height="35" rx="8" fill="#007bff"/>
+  <text x="450" y="398" text-anchor="middle" font-size="13" font-weight="bold" fill="#fff">Products</text>
+  <text x="365" y="428" font-size="12" fill="#1a1a2e" font-weight="bold" text-decoration="underline">ProductID (PK)</text>
+  <text x="365" y="450" font-size="12" fill="#555">ProductName</text>
+  <text x="365" y="470" font-size="12" fill="#555">Category</text>
+
+  <!-- Table 3: OrderDetails -->
+  <rect x="630" y="375" width="235" height="110" rx="8" fill="#fff" stroke="#007bff" stroke-width="2"/>
+  <rect x="630" y="375" width="235" height="35" rx="8" fill="#007bff"/>
+  <text x="747" y="398" text-anchor="middle" font-size="13" font-weight="bold" fill="#fff">OrderDetails</text>
+  <text x="655" y="428" font-size="12" fill="#1a1a2e" font-weight="bold" text-decoration="underline">OrderID (FK)</text>
+  <text x="655" y="450" font-size="12" fill="#1a1a2e" font-weight="bold" text-decoration="underline">ProductID (FK)</text>
+  <text x="655" y="472" font-size="12" fill="#555">Quantity</text>
+
+  <!-- Arrows: OrderDetails -> Orders -->
+  <line x1="630" y1="435" x2="272" y2="435" stroke="#28a745" stroke-width="1.8" marker-end="url(#arrowGreen)"/>
+  <text x="440" y="427" text-anchor="middle" font-size="10" fill="#28a745">FK → OrderID</text>
+
+  <!-- Arrows: OrderDetails -> Products -->
+  <line x1="630" y1="455" x2="562" y2="455" stroke="#28a745" stroke-width="1.8" marker-end="url(#arrowGreen)"/>
+  <text x="598" y="447" text-anchor="middle" font-size="10" fill="#28a745">FK</text>
+
+  <!-- Footer note -->
+  <rect x="50" y="505" width="800" height="70" rx="8" fill="#e8f5e9" stroke="#28a745" stroke-width="1.5"/>
+  <text x="450" y="528" text-anchor="middle" font-size="13" font-weight="bold" fill="#1a6b2a">📌 Lecturer Note:</text>
+  <text x="450" y="548" text-anchor="middle" font-size="12" fill="#333">"ProductName depends only on ProductID (partial dependency) — violates 2NF.</text>
+  <text x="450" y="566" text-anchor="middle" font-size="12" fill="#333">Decompose into Orders, Products, and OrderDetails tables." — Dr. Kawesha</text>
+
+</svg>

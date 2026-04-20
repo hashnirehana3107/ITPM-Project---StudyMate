@@ -23,6 +23,7 @@ const IssueList = () => {
         status: 'All',
         sortBy: 'newest'
     });
+    
 
     const [activeTab, setActiveTab] = useState('all');
     const [stats, setStats] = useState({ total: 0, open: 0, resolved: 0 });

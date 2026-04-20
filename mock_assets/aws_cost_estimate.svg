@@ -1,0 +1,91 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="920" height="720" font-family="Segoe UI, Arial, sans-serif">
+
+  <!-- Page Background -->
+  <rect width="920" height="720" fill="#f4f6f8"/>
+
+  <!-- Document Header -->
+  <rect x="0" y="0" width="920" height="70" fill="#232f3e"/>
+  <text x="30" y="28" font-size="11" fill="#ff9900" font-weight="bold">Amazon Web Services</text>
+  <text x="30" y="50" font-size="20" font-weight="bold" fill="#ffffff">Cloud Storage Cost Estimate Report</text>
+  <text x="720" y="28" font-size="11" fill="#aaa">Project: SLIIT Log Archive</text>
+  <text x="720" y="48" font-size="11" fill="#aaa">Prepared by: IT Student Group 07</text>
+  <text x="720" y="65" font-size="10" fill="#888">Date: April 07, 2026</text>
+
+  <!-- Section 1: Requirements -->
+  <rect x="30" y="90" width="860" height="90" rx="8" fill="#ffffff" stroke="#dee2e6" stroke-width="1.5"/>
+  <rect x="30" y="90" width="860" height="35" rx="8" fill="#232f3e"/>
+  <text x="50" y="113" font-size="14" font-weight="bold" fill="#ff9900">📋 Project Requirements</text>
+
+  <text x="50" y="148" font-size="12" fill="#333">● Storage Volume: <tspan font-weight="bold">5 TB</tspan> of server log files</text>
+  <text x="300" y="148" font-size="12" fill="#333">● Retention Period: <tspan font-weight="bold">24 Months (2 Years)</tspan></text>
+  <text x="600" y="148" font-size="12" fill="#333">● Access Frequency: <tspan font-weight="bold">Once every 3 months</tspan></text>
+  <text x="50" y="168" font-size="12" fill="#333">● Use Case: Audit log retrieval, compliance storage, SLIIT IT Department</text>
+
+  <!-- Section 2: Cost Table Header -->
+  <text x="30" y="210" font-size="15" font-weight="bold" fill="#232f3e">📊 Cost Comparison: S3 Standard-IA vs S3 Glacier</text>
+
+  <!-- Table -->
+  <rect x="30" y="220" width="860" height="35" rx="5" fill="#232f3e"/>
+  <text x="50" y="243" font-size="12" font-weight="bold" fill="#ff9900">Cost Factor</text>
+  <text x="320" y="243" font-size="12" font-weight="bold" fill="#ff9900">S3 Standard-IA</text>
+  <text x="560" y="243" font-size="12" font-weight="bold" fill="#ff9900">S3 Glacier (Standard)</text>
+  <text x="780" y="243" font-size="12" font-weight="bold" fill="#ff9900">Recommended?</text>
+
+  <!-- Row 1 -->
+  <rect x="30" y="255" width="860" height="35" fill="#ffffff" stroke="#e0e0e0" stroke-width="1"/>
+  <text x="50" y="277" font-size="12" fill="#333">Storage Cost / GB / Month</text>
+  <text x="320" y="277" font-size="12" fill="#0077cc" font-weight="bold">$0.0125</text>
+  <text x="560" y="277" font-size="12" fill="#28a745" font-weight="bold">$0.004</text>
+  <text x="780" y="277" font-size="12" fill="#28a745">Glacier ✅</text>
+
+  <!-- Row 2 -->
+  <rect x="30" y="290" width="860" height="35" fill="#f8f9fa" stroke="#e0e0e0" stroke-width="1"/>
+  <text x="50" y="312" font-size="12" fill="#333">Total Storage Cost / Year (5TB)</text>
+  <text x="320" y="312" font-size="12" fill="#0077cc" font-weight="bold">$768.00</text>
+  <text x="560" y="312" font-size="12" fill="#28a745" font-weight="bold">$245.76</text>
+  <text x="780" y="312" font-size="12" fill="#28a745">Glacier ✅</text>
+
+  <!-- Row 3 -->
+  <rect x="30" y="325" width="860" height="35" fill="#ffffff" stroke="#e0e0e0" stroke-width="1"/>
+  <text x="50" y="347" font-size="12" fill="#333">Retrieval Cost / GB</text>
+  <text x="320" y="347" font-size="12" fill="#0077cc" font-weight="bold">$0.01</text>
+  <text x="560" y="347" font-size="12" fill="#dc3545" font-weight="bold">$0.03</text>
+  <text x="780" y="347" font-size="12" fill="#0077cc">Standard-IA ✅</text>
+
+  <!-- Row 4 -->
+  <rect x="30" y="360" width="860" height="35" fill="#f8f9fa" stroke="#e0e0e0" stroke-width="1"/>
+  <text x="50" y="382" font-size="12" fill="#333">Total Retrieval Cost (5TB × 4 times/yr)</text>
+  <text x="320" y="382" font-size="12" fill="#0077cc" font-weight="bold">$204.80</text>
+  <text x="560" y="382" font-size="12" fill="#dc3545" font-weight="bold">$614.40</text>
+  <text x="780" y="382" font-size="12" fill="#0077cc">Standard-IA ✅</text>
+
+  <!-- Row 5 -->
+  <rect x="30" y="395" width="860" height="35" fill="#ffffff" stroke="#e0e0e0" stroke-width="1"/>
+  <text x="50" y="417" font-size="12" fill="#333">Retrieval Time (Latency)</text>
+  <text x="320" y="417" font-size="12" fill="#0077cc" font-weight="bold">Milliseconds (Instant)</text>
+  <text x="560" y="417" font-size="12" fill="#dc3545" font-weight="bold">3–5 Hours</text>
+  <text x="780" y="417" font-size="12" fill="#0077cc">Standard-IA ✅</text>
+
+  <!-- Row 6: Total -->
+  <rect x="30" y="430" width="860" height="40" fill="#e8f0fe" stroke="#4a6cf7" stroke-width="2"/>
+  <text x="50" y="456" font-size="13" font-weight="bold" fill="#333">💰 Total Estimated 2-Year Cost</text>
+  <text x="320" y="456" font-size="14" fill="#0077cc" font-weight="bold">$1,945.60</text>
+  <text x="560" y="456" font-size="14" fill="#dc3545" font-weight="bold">$1,720.32</text>
+  <text x="780" y="456" font-size="12" fill="#555">Similar range</text>
+
+  <!-- Section 3: Recommendation Box -->
+  <rect x="30" y="490" width="860" height="130" rx="8" fill="#e8f5e9" stroke="#28a745" stroke-width="2"/>
+  <text x="50" y="515" font-size="14" font-weight="bold" fill="#1b5e20">✅ Recommendation: S3 Standard-IA</text>
+
+  <text x="50" y="540" font-size="12" fill="#333">While S3 Glacier has a lower upfront storage cost, when you factor in quarterly retrieval of 5TB, the costs become</text>
+  <text x="50" y="558" font-size="12" fill="#333">nearly equal. However, S3 Standard-IA provides <tspan font-weight="bold">instant access</tspan> (milliseconds) compared to Glacier's</text>
+  <text x="50" y="576" font-size="12" fill="#333"><tspan font-weight="bold">3–5 hour wait</tspan>, which is critical for audit compliance deadlines. For a university audit scenario,</text>
+  <text x="50" y="594" font-size="12" fill="#333">the operational value of <tspan font-weight="bold">instant retrieval</tspan> outweighs the marginal storage savings of Glacier.</text>
+  <text x="50" y="612" font-size="12" fill="#1b5e20" font-weight="bold">→ Final Choice: S3 Standard-IA at ~$1,945.60 / 2 years for 5TB with quarterly audits.</text>
+
+  <!-- Footer -->
+  <rect x="0" y="670" width="920" height="50" fill="#232f3e"/>
+  <text x="460" y="690" text-anchor="middle" font-size="11" fill="#aaa">AWS Pricing based on ap-southeast-1 (Singapore) Region — April 2026</text>
+  <text x="460" y="710" text-anchor="middle" font-size="10" fill="#888">IT1010 - Cloud Computing | BSc Information Technology | SLIIT</text>
+
+</svg>
