@@ -1,0 +1,471 @@
+/* ═══════════════════════════════════════════════════════════════
+   Internships Page — mirrors Study Materials Premium Dark Theme
+═══════════════════════════════════════════════════════════════ */
+
+/* ── Page Shell ── (same as study-materials-page) */
+.internship-page {
+    min-height: 100vh;
+    padding: 120px 2rem 60px;
+    background-color: #0F172A;
+    color: #F8FAFC;
+    font-family: 'Poppins', sans-serif;
+}
+.internship-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    width: 100%;
+}
+
+/* ── Header Card ── (same as materials-header-card but row layout) */
+.internship-header-card {
+    background: #1E293B;
+    border-radius: 20px;
+    padding: 2.5rem;
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.3);
+    border: 1px solid #334155;
+    margin-bottom: 1.5rem;
+    position: relative;
+    overflow: hidden;
+}
+.internship-header-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    background: radial-gradient(circle at 20% 50%, rgba(59, 130, 246, 0.12), transparent 60%);
+    pointer-events: none;
+}
+
+/* header-content: row (internships has stats) vs column (materials) */
+.internship-header-card .header-content {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    flex-wrap: wrap;
+    position: relative;
+    z-index: 1;
+}
+
+/* reuse same header-icon as materials */
+.header-icon {
+    width: 70px;
+    height: 70px;
+    background: rgba(59, 130, 246, 0.1);
+    color: #60A5FA;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid rgba(59, 130, 246, 0.2);
+    box-shadow: 0 0 20px rgba(59, 130, 246, 0.2);
+    flex-shrink: 0;
+}
+
+/* reuse same header-text */
+.header-text h1 {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: #F8FAFC;
+    margin-bottom: 0.4rem;
+    overflow-wrap: anywhere;
+    word-break: break-word;
+}
+.header-text p {
+    color: #94A3B8;
+    font-size: 1.05rem;
+    overflow-wrap: anywhere;
+    word-break: break-word;
+}
+.header-text p strong { color: #60A5FA; }
+
+/* Stats pills — internship-only addition */
+.int-header-stats {
+    display: flex;
+    gap: 0.6rem;
+    flex-wrap: wrap;
+    margin-left: auto;
+}
+.int-stat-pill {
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+    padding: 0.45rem 0.9rem;
+    border-radius: 50px;
+    font-size: 0.78rem;
+    font-weight: 700;
+}
+.int-stat-pill.green { background: rgba(16,185,129,.12); color: #34D399; border: 1px solid rgba(16,185,129,.25); }
+.int-stat-pill.red   { background: rgba(239,68,68,.12);  color: #F87171; border: 1px solid rgba(239,68,68,.25); }
+.int-stat-pill.blue  { background: rgba(59,130,246,.12); color: #60A5FA; border: 1px solid rgba(59,130,246,.25); }
+
+/* ── Tabs ── */
+.int-tabs {
+    display: flex;
+    gap: 0.6rem;
+    flex-wrap: wrap;
+    margin-bottom: 1.25rem;
+}
+.int-tab {
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+    padding: 0.55rem 1.15rem;
+    border-radius: 50px;
+    background: #1E293B;
+    border: 1px solid #334155;
+    color: #94A3B8;
+    font-size: 0.83rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+.int-tab:hover { border-color: #475569; color: #F8FAFC; }
+.int-tab.active {
+    background: linear-gradient(135deg, #2563EB, #1D4ED8);
+    border-color: #3B82F6;
+    color: white;
+    box-shadow: 0 4px 14px rgba(59,130,246,.35);
+}
+
+/* ── Filter Section ── (reuse exact study materials classes) */
+.filter-section-premium {
+    background: #1E293B;
+    border-radius: 20px;
+    padding: 1.5rem;
+    margin-bottom: 1.5rem;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.2);
+}
+.search-bar-modern { position: relative; margin-bottom: 1.5rem; }
+.search-bar-modern .search-icon {
+    position: absolute;
+    left: 1.25rem;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #64748B;
+}
+.search-input-modern {
+    width: 100%;
+    padding: 0.85rem 1rem 0.85rem 3.2rem;
+    background: #0F172A;
+    border: 1px solid #334155;
+    border-radius: 14px;
+    color: #F8FAFC;
+    font-size: 0.95rem;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    box-sizing: border-box;
+}
+.search-input-modern:focus {
+    outline: none;
+    border-color: #3B82F6;
+    background: #162442;
+    box-shadow: 0 0 0 4px rgba(59, 130, 246, 0.1);
+}
+.filter-grid-modern { display: flex; align-items: flex-end; gap: 1.5rem; flex-wrap: wrap; }
+.filter-group-modern { display: flex; flex-direction: column; gap: 0.5rem; flex: 1; min-width: 220px; }
+.filter-group-modern label {
+    font-size: 0.85rem;
+    font-weight: 700;
+    color: #94A3B8;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    letter-spacing: 0.5px;
+}
+.filter-select-modern {
+    width: 100%;
+    padding: 0.85rem 1rem;
+    background: #0F172A;
+    border: 1px solid #334155;
+    border-radius: 12px;
+    color: #F8FAFC;
+    font-size: 0.95rem;
+    cursor: pointer;
+    transition: all 0.2s;
+    appearance: none;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='%2364748B' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m6 9 6 6 6-6'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 1rem center;
+    background-size: 1.2rem;
+}
+.filter-select-modern:hover { border-color: #475569; }
+.filter-select-modern:focus { outline: none; border-color: #3B82F6; box-shadow: 0 0 0 2px rgba(59, 130, 246, 0.1); }
+.filter-select-modern.disabled-fixed { background-image: none; cursor: default; opacity: 0.7; }
+.filter-actions-modern { display: flex; align-items: center; }
+.reset-filter-btn {
+    background: rgba(239, 68, 68, 0.1);
+    color: #F87171;
+    border: 1px solid rgba(239, 68, 68, 0.2);
+    padding: 0.8rem 2rem;
+    border-radius: 12px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.2s;
+    font-size: 0.95rem;
+}
+.reset-filter-btn:hover { background: #EF4444; color: white; transform: translateY(-2px); box-shadow: 0 4px 12px rgba(239,68,68,.3); }
+
+/* ── Year-smart Banner ── */
+.int-smart-banner {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 0.85rem 1.3rem;
+    border-radius: 14px;
+    margin-bottom: 1.5rem;
+    font-size: 0.88rem;
+    color: #CBD5E1;
+    border: 1px solid;
+}
+.banner-icon { flex-shrink: 0; }
+.int-smart-banner strong { color: inherit; filter: brightness(1.3); }
+
+.int-smart-banner.banner-blue   { background: rgba(59,130,246,.1);  border-color: rgba(59,130,246,.25);  }
+.int-smart-banner.banner-blue .banner-icon   { color: #60A5FA; }
+.int-smart-banner.banner-gold   { background: rgba(245,158,11,.1);  border-color: rgba(245,158,11,.3);   }
+.int-smart-banner.banner-gold .banner-icon   { color: #FBBF24; }
+.int-smart-banner.banner-purple { background: rgba(139,92,246,.1);  border-color: rgba(139,92,246,.3);   }
+.int-smart-banner.banner-purple .banner-icon { color: #A78BFA; }
+
+/* ── Grid ── (same as materials-grid) */
+.internship-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    gap: 2rem;
+}
+
+/* ── Internship Card ── (mirrors material-card-modern) */
+.internship-card-modern {
+    background: #1E293B;
+    border-radius: 16px;
+    padding: 1.5rem;
+    border: 1px solid #334155;
+    transition: all 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
+}
+.internship-card-modern::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%;
+    height: 4px;
+    background: linear-gradient(90deg, #3B82F6, #10B981);
+    opacity: 0;
+    transition: opacity 0.3s;
+}
+.internship-card-modern:hover { transform: translateY(-8px); box-shadow: 0 20px 25px -5px rgba(0,0,0,.3); border-color: #475569; }
+.internship-card-modern:hover::before { opacity: 1; }
+.internship-card-modern.closing-soon { border-color: rgba(239,68,68,.3); }
+.internship-card-modern.applied-card { border-color: rgba(16,185,129,.3); }
+
+/* Featured ribbon */
+.int-ribbon {
+    position: absolute;
+    top: 12px; right: -1px;
+    background: linear-gradient(135deg, #F59E0B, #D97706);
+    color: #111;
+    font-size: 0.7rem;
+    font-weight: 800;
+    padding: 0.25rem 0.85rem 0.25rem 0.95rem;
+    border-radius: 4px 0 0 4px;
+    box-shadow: -3px 3px 10px rgba(0,0,0,.25);
+    letter-spacing: 0.3px;
+}
+
+/* card-top (same as study materials) */
+.card-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 0.9rem;
+}
+.company-logo-box {
+    width: 48px;
+    height: 48px;
+    background: linear-gradient(135deg, #3B82F6, #1D4ED8);
+    color: white;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.3rem;
+    font-weight: 800;
+    flex-shrink: 0;
+}
+.int-top-right {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+/* Deadline badges */
+.int-deadline-badge {
+    display: flex;
+    align-items: center;
+    gap: 0.28rem;
+    padding: 0.25rem 0.65rem;
+    border-radius: 50px;
+    font-size: 0.72rem;
+    font-weight: 700;
+}
+.int-deadline-badge.critical { background: rgba(239,68,68,.15); color: #F87171; border: 1px solid rgba(239,68,68,.3); animation: pulse-red 1.5s infinite; }
+.int-deadline-badge.urgent   { background: rgba(245,158,11,.12); color: #FBBF24; border: 1px solid rgba(245,158,11,.3); }
+.int-deadline-badge.normal   { background: rgba(100,116,139,.1); color: #94A3B8; border: 1px solid rgba(100,116,139,.2); }
+@keyframes pulse-red {
+    0%, 100% { box-shadow: 0 0 0 0 rgba(239,68,68,.4); }
+    50%       { box-shadow: 0 0 0 5px rgba(239,68,68,0); }
+}
+
+/* Bookmark button */
+.int-bookmark-btn {
+    background: none;
+    border: none;
+    color: #64748B;
+    cursor: pointer;
+    padding: 0.2rem;
+    border-radius: 7px;
+    transition: all 0.2s;
+    display: flex;
+    align-items: center;
+}
+.int-bookmark-btn:hover { color: #60A5FA; background: rgba(59,130,246,.1); }
+.int-bookmark-btn.saved { color: #F59E0B; }
+
+/* Title & company (mirrors material-title) */
+.internship-title {
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: #F8FAFC;
+    margin-bottom: 0.3rem;
+    line-height: 1.4;
+    overflow-wrap: anywhere;
+    word-break: break-word;
+}
+.internship-company {
+    color: #3B82F6;
+    font-size: 0.85rem;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    margin-bottom: 0.85rem;
+    overflow-wrap: anywhere;
+    word-break: break-word;
+}
+
+/* Meta tags (mirrors material-meta / meta-tag) */
+.internship-meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem;
+    margin-bottom: 1rem;
+}
+.int-meta-tag {
+    display: flex;
+    align-items: center;
+    gap: 0.28rem;
+    font-size: 0.75rem;
+    padding: 3px 9px;
+    border-radius: 6px;
+    font-weight: 700;
+    border: 1px solid;
+    overflow-wrap: anywhere;
+    word-break: break-word;
+}
+.int-meta-tag.match-high { background: rgba(16,185,129,.1);  color: #34D399; border-color: rgba(16,185,129,.25); }
+.int-meta-tag.match-med  { background: rgba(245,158,11,.1);  color: #FBBF24; border-color: rgba(245,158,11,.25); }
+.int-meta-tag.eligible   { background: rgba(99,102,241,.1);  color: #A5B4FC; border-color: rgba(99,102,241,.25); }
+.int-meta-tag.applied    { background: rgba(16,185,129,.1);  color: #34D399; border-color: rgba(16,185,129,.25); }
+
+/* Stats (mirrors card-stats) */
+.internship-stats {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 8px;
+    margin-bottom: 1.25rem;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid #334155;
+    color: #64748B;
+    font-size: 0.83rem;
+}
+.stat { display: flex; align-items: center; gap: 6px; }
+
+/* Actions (reuse btn-action from study materials pattern) */
+.card-actions { display: flex; gap: 0.75rem; margin-top: auto; }
+.btn-action {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    padding: 10px;
+    border-radius: 8px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s;
+    font-size: 0.9rem;
+    border: 1px solid;
+}
+/* View = same as study materials "view" */
+.btn-action.view {
+    background: transparent;
+    border-color: #475569;
+    color: #94A3B8;
+}
+.btn-action.view:hover { border-color: #F8FAFC; color: #F8FAFC; background: rgba(255,255,255,.05); }
+
+/* Track = replaces "download" button visually */
+.btn-action.track {
+    background: linear-gradient(135deg, #6366F1 0%, #4F46E5 100%);
+    border-color: transparent;
+    color: white;
+    box-shadow: 0 4px 6px rgba(99,102,241,.2);
+}
+.btn-action.track:hover { background: linear-gradient(135deg, #818CF8 0%, #6366F1 100%); transform: translateY(-2px); box-shadow: 0 6px 10px rgba(99,102,241,.3); }
+.btn-action.track.applied {
+    background: linear-gradient(135deg, #10B981 0%, #059669 100%);
+    box-shadow: 0 4px 6px rgba(16,185,129,.2);
+}
+.btn-action.track.applied:hover { background: linear-gradient(135deg, #34D399, #10B981); }
+
+/* ── Loading & Empty (mirrors study materials) ── */
+.loading-state,
+.empty-state {
+    grid-column: 1 / -1;
+    text-align: center;
+    padding: 4rem;
+    background: #1E293B;
+    border-radius: 20px;
+    border: 1px solid #334155;
+    color: #94A3B8;
+}
+.spinner {
+    border: 4px solid rgba(255, 255, 255, 0.1);
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    border-left-color: #3B82F6;
+    animation: spin 1s linear infinite;
+    margin: 0 auto 1rem;
+}
+@keyframes spin { to { transform: rotate(360deg); } }
+
+/* ── Animations ── */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to   { opacity: 1; transform: translateY(0); }
+}
+.animate-fade-in { animation: fadeIn 0.5s ease-out; }
+
+/* ── Mobile ── */
+@media (max-width: 768px) {
+    .internship-grid { grid-template-columns: 1fr; }
+    .int-header-stats { margin-left: 0; }
+    .filter-grid-modern { flex-direction: column; }
+    .int-tabs { gap: 0.4rem; }
+    .int-tab  { flex: 1 1 auto; justify-content: center; padding: 0.5rem 0.7rem; font-size: 0.78rem; }
+}
