@@ -270,5 +270,3 @@ const LecturerRequests = () => {
 };
 
 export default LecturerRequests;
-// UX Refinement: Verified labels and descriptive tooltips for request status updates
-
