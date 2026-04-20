@@ -1,0 +1,297 @@
+/* Upload Material Page - Premium Dark Theme */
+.admin-page {
+    min-height: 100vh;
+    padding: 120px 2rem 60px;
+    /* Below Navbar */
+    background-color: #0F172A;
+    /* Slate 900 */
+    color: #F8FAFC;
+    /* Slate 50 */
+    font-family: 'Poppins', sans-serif;
+}
+
+.admin-container {
+    max-width: 900px;
+    margin: 0 auto;
+    width: 100%;
+}
+
+/* 🔙 Back Navigation */
+.btn-back-link {
+    background: transparent;
+    border: none;
+    color: #94A3B8;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 1rem;
+    cursor: pointer;
+    margin-bottom: 2rem;
+    transition: all 0.2s;
+}
+
+.btn-back-link:hover {
+    color: #4ADE80;
+    /* Emerald */
+    transform: translateX(-5px);
+}
+
+/* 🖼️ Header */
+.admin-header {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    background: #1E293B;
+    padding: 2.5rem;
+    border-radius: 20px 20px 0 0;
+    /* Top rounded only */
+    border-bottom: 2px solid #334155;
+    position: relative;
+    overflow: hidden;
+}
+
+.admin-header::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 250px;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(59, 130, 246, 0.05));
+    pointer-events: none;
+}
+
+.header-icon-box {
+    width: 60px;
+    height: 60px;
+    background: rgba(16, 185, 129, 0.1);
+    color: #34D399;
+    /* Emerald */
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid rgba(16, 185, 129, 0.2);
+    margin-right: 1.5rem;
+    z-index: 1;
+}
+
+.admin-header h1 {
+    font-size: 1.8rem;
+    font-weight: 700;
+    margin-bottom: 0.25rem;
+    color: #F8FAFC;
+}
+
+.admin-header p {
+    color: #94A3B8;
+    font-size: 0.95rem;
+}
+
+/* 📋 Upload Card */
+.upload-card {
+    background: #1E293B;
+    border-radius: 0 0 20px 20px;
+    border: 1px solid #334155;
+    border-top: none;
+    padding: 2.5rem;
+}
+
+/* 1️⃣ File Upload Area (Drag & Drop) */
+.drop-zone {
+    border: 2px dashed #475569;
+    border-radius: 16px;
+    padding: 2.5rem;
+    text-align: center;
+    cursor: pointer;
+    position: relative;
+    transition: all 0.3s;
+    background: #0F172A;
+    margin-bottom: 2.5rem;
+}
+
+.drop-zone:hover,
+.drop-zone.active {
+    border-color: #34D399;
+    background: rgba(16, 185, 129, 0.05);
+}
+
+.file-input {
+    display: none;
+}
+
+.upload-icon-wrapper {
+    margin-bottom: 1rem;
+    color: #94A3B8;
+}
+
+.upload-text {
+    font-size: 1.1rem;
+    color: #F8FAFC;
+    margin-bottom: 0.5rem;
+}
+
+.upload-hint {
+    font-size: 0.85rem;
+    color: #64748B;
+}
+
+/* Has File */
+.file-preview {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: #1E293B;
+    padding: 1rem 1.5rem;
+    border-radius: 12px;
+    border: 1px solid #334155;
+    width: 100%;
+}
+
+.file-icon {
+    margin-right: 1rem;
+    color: #60A5FA;
+}
+
+.file-info {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.file-name {
+    color: #F8FAFC;
+    font-weight: 500;
+}
+
+.file-size {
+    color: #94A3B8;
+    font-size: 0.8rem;
+}
+
+.btn-remove-file {
+    background: transparent;
+    border: none;
+    color: #EF4444;
+    cursor: pointer;
+    padding: 8px;
+    border-radius: 8px;
+    transition: background 0.2s;
+}
+
+.btn-remove-file:hover {
+    background: rgba(239, 68, 68, 0.1);
+}
+
+/* Form Grid */
+.form-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.form-group.full-width {
+    grid-column: 1 / -1;
+}
+
+.form-label {
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: #94A3B8;
+}
+
+.form-input,
+.form-select,
+.form-textarea {
+    width: 100%;
+    padding: 12px;
+    background: #0F172A;
+    border: 1px solid #334155;
+    border-radius: 8px;
+    color: #F8FAFC;
+    font-size: 0.95rem;
+    transition: border 0.2s;
+}
+
+.form-input:focus,
+.form-select:focus,
+.form-textarea:focus {
+    outline: none;
+    border-color: #34D399;
+    box-shadow: 0 0 0 3px rgba(16, 185, 129, 0.1);
+}
+
+.form-textarea {
+    resize: vertical;
+}
+
+/* 6️⃣ Submit Button */
+.btn-upload {
+    width: 100%;
+    background: linear-gradient(135deg, #10B981 0%, #059669 100%);
+    color: white;
+    padding: 14px;
+    border-radius: 8px;
+    font-weight: 700;
+    font-size: 1.1rem;
+    border: none;
+    cursor: pointer;
+    transition: all 0.2s;
+    box-shadow: 0 4px 6px -1px rgba(16, 185, 129, 0.3);
+}
+
+.btn-upload:hover:not(:disabled) {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 15px -3px rgba(16, 185, 129, 0.4);
+    background: linear-gradient(135deg, #34D399 0%, #10B981 100%);
+}
+
+.btn-upload:disabled {
+    opacity: 0.7;
+    cursor: wait;
+}
+
+/* Success Message */
+.alert-success {
+    background: rgba(16, 185, 129, 0.15);
+    color: #34D399;
+    border: 1px solid rgba(16, 185, 129, 0.3);
+    padding: 1rem;
+    border-radius: 8px;
+    margin-bottom: 2rem;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-weight: 500;
+}
+
+/* Animations */
+@keyframes slideUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.animate-slide-up {
+    animation: slideUp 0.4s ease-out;
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+    .form-grid {
+        grid-template-columns: 1fr;
+    }
+}
